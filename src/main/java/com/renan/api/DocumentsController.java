@@ -31,6 +31,16 @@ public class DocumentsController
 		this.documentService = documentService;
 	}
 
+	/**
+	 * --- Documents ---
+	 * --- Filter by Deleted documents (deleted = true) ---
+	 * --- Filter by Categories ---
+	 * --- Filter by Type ---
+	 * --- Sort by any Document field ASC or DESC ex: (name,ASC) = default (id,ASC)
+	 * @param documentFilters filter of documents search
+	 * @param sortBy sortBy field and direction
+	 * @return List of Documents
+	 */
 	@GetMapping("/")
 	public ResponseEntity<List<Document>> getDocuments(@Validated DocumentFilters documentFilters,
 		@RequestParam(value = "sort", defaultValue = "id,ASC", required = false) String sortBy) throws DocumentsFetchException
@@ -40,13 +50,13 @@ public class DocumentsController
 
 	/**
 	 * Return count of found documents based on filters
-	 * --- Total number of documents ---
-	 * --- Number of Deleted documents (deleted = true) ---
+	 * --- Total number of found documents ---
+	 * --- Filter by Deleted documents (deleted = true) ---
 	 * --- Filter by Categories ---
 	 * --- Filter by Type ---
 	 *
 	 * @param documentFilters filter of documents search
-	 * @return count of Documents
+	 * @return Count of Documents
 	 */
 	@GetMapping("/count")
 	public ResponseEntity<Integer> numberOfDocuments(@Validated DocumentFilters documentFilters) throws DocumentsFetchException
@@ -54,12 +64,30 @@ public class DocumentsController
 		return ResponseEntity.ok(documentService.countDocuments(documentFilters));
 	}
 
+	/**
+	 * --- Total size (sum) of found documents ---
+	 * --- Filter by Deleted documents (deleted = true) ---
+	 * --- Filter by Categories ---
+	 * --- Filter by Type ---
+	 * @param documentFilters
+	 * @return Size of documents
+	 * @throws DocumentsFetchException
+	 */
 	@GetMapping("/size")
 	public ResponseEntity<Long> sizeOfDocuments(@Validated DocumentFilters documentFilters) throws DocumentsFetchException
 	{
 		return ResponseEntity.ok(documentService.sizeOfDocuments(documentFilters));
 	}
 
+	/**
+	 * --- Average size (size-sum/count) of found documents ---
+	 * --- Filter by Deleted documents (deleted = true/false/null) ---
+	 * --- Filter by Categories ---
+	 * --- Filter by Type ---
+	 * @param documentFilters
+	 * @return Average size of Documents
+	 * @throws DocumentsFetchException
+	 */
 	@GetMapping("/average-size")
 	public ResponseEntity<Double> averageSizeOfDocuments(@Validated DocumentFilters documentFilters) throws DocumentsFetchException
 	{
