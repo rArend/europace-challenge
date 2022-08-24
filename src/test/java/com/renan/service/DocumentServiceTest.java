@@ -17,7 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.renan.DocumentsFetchException;
+import com.renan.validation.DocumentsFetchException;
 import com.renan.data.Document;
 import com.renan.data.enums.TypeEnum;
 import com.renan.filters.DocumentFilters;

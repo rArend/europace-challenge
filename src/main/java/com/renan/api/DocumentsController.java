@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.renan.DocumentsFetchException;
+import com.renan.validation.DocumentsFetchException;
 import com.renan.data.Document;
 import com.renan.filters.DocumentFilters;
 import com.renan.service.DocumentService;

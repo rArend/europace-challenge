@@ -1,4 +1,4 @@
-package com.renan;
+package com.renan.validation;
 
 public class DocumentsFetchException extends Exception {
 

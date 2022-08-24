@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.renan.DocumentsFetchException;
+import com.renan.validation.DocumentsFetchException;
 import com.renan.data.Document;
 import com.renan.data.SortBy;
 import com.renan.data.enums.TypeEnum;
